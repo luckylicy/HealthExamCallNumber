@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.xyj.hecn.bean.MqttMessageBean" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/color_00A0E9"
+        tools:context=".ui.MainActivity">
+
+        <TextView
+            android:id="@+id/tv_app_name"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:background="@color/color_white"
+            android:gravity="center_vertical"
+            android:paddingStart="12dp"
+            android:text="@string/app_name"
+            android:textColor="@color/color_222222"
+            android:textSize="13sp"
+            app:layout_constraintEnd_toStartOf="@id/tv_time"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="0dp"
+            android:layout_height="20dp"
+            android:background="@color/color_white"
+            android:gravity="center_vertical|end"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:textColor="@color/color_222222"
+            android:textSize="13sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@id/tv_app_name"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="2021年4月25日 18:00:00" />
+
+        <TextView
+            android:id="@+id/tv_depart_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_10"
+            android:text="@{data.department}"
+            android:textColor="@color/color_white"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_app_name"
+            tools:text="检验科" />
+
+        <LinearLayout
+            android:id="@+id/ll_current"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_margin="8dp"
+            android:background="@drawable/shape_bg_white_circle_6"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/tv_depart_name">
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="15dp"
+                android:background="@drawable/bg_order_number"
+                android:gravity="center_vertical"
+                android:paddingStart="6dp"
+                android:text="当前叫号："
+                android:textColor="@color/color_white"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tv_current_patient_number"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_marginStart="15dp"
+                android:gravity="center_vertical"
+                android:paddingStart="6dp"
+                android:textColor="@color/color_00A0E9"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                tools:text="A001 欣宜嘉1" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_current_line_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="@dimen/dp_10"
+            android:text="@string/current_line_total_number"
+            android:textColor="@color/color_white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ll_current"
+            tools:text="当前总排队人数：13人" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/shape_bg_white_circle_6_no_bottom"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_current_line_number">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/shape_bg_d0e6f1_circle_6"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="号码"
+                    android:textColor="@color/color_00A0E9"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="姓名"
+                    android:textColor="@color/color_00A0E9"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_line_persons"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:overScrollMode="never"
+                android:scrollbars="none"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:itemCount="6"
+                tools:listitem="@layout/adapter_rv_line_person" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">欣宜嘉体检叫号系统</string>
+    <string name="current_line_total_number">当前总排队人数： %d 人</string>
+</resources>
