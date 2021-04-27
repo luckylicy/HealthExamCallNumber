@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
 import android.util.Log;
@@ -12,6 +13,7 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
+import com.blankj.utilcode.util.DeviceUtils;
 import com.blankj.utilcode.util.GsonUtils;
 import com.xyj.hecn.bean.MqttMessageBean;
 import com.xyj.hecn.bean.PatientBean;
@@ -67,7 +69,7 @@ public class MessageService extends Service {
     /**
      * 客户端ID，一般以客户端唯一标识符表示，这里用设备序列号表示
      */
-    public String CLIENTID = "androidid";
+    public String CLIENTID = DeviceUtils.getAndroidID();
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
@@ -131,7 +133,7 @@ public class MessageService extends Service {
         mqttAndroidClient.setCallback(mqttCallback); //设置监听订阅消息的回调
         mMqttConnectOptions = new MqttConnectOptions();
         mMqttConnectOptions.setCleanSession(true); //设置是否清除缓存
-        mMqttConnectOptions.setConnectionTimeout(30); //设置超时时间，单位：秒
+        mMqttConnectOptions.setConnectionTimeout(10); //设置超时时间，单位：秒
         mMqttConnectOptions.setKeepAliveInterval(20); //设置心跳包发送间隔，单位：秒
         mMqttConnectOptions.setUserName(USERNAME); //设置用户名
         mMqttConnectOptions.setPassword(PASSWORD.toCharArray()); //设置密码
