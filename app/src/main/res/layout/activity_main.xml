@@ -52,7 +52,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_10"
-            android:text="@{data.department}"
             android:textColor="@color/color_white"
             android:textSize="36sp"
             android:textStyle="bold"
@@ -60,6 +59,15 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_app_name"
             tools:text="检验科" />
+
+        <View
+            android:id="@+id/view_hide_setting"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@id/ll_current"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tv_depart_name"
+            app:layout_constraintTop_toBottomOf="@id/tv_app_name" />
 
         <LinearLayout
             android:id="@+id/ll_current"

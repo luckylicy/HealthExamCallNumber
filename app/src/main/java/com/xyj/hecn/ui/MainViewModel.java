@@ -24,7 +24,7 @@ public class MainViewModel extends ViewModel {
     public MutableLiveData<MqttMessageBean> getPatientBeans() {
         if (mPatientBeans == null) {
             mPatientBeans = new MutableLiveData<>();
-            mPatientBeans.setValue(new MqttMessageBean("", new ArrayList<>()));
+            mPatientBeans.setValue(new MqttMessageBean(0, "", new ArrayList<>()));
         }
         return mPatientBeans;
     }

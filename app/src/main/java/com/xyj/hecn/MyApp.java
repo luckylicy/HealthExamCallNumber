@@ -2,7 +2,9 @@ package com.xyj.hecn;
 
 import android.app.Application;
 
+import com.blankj.utilcode.util.LogUtils;
 import com.blankj.utilcode.util.Utils;
+import com.tencent.mmkv.MMKV;
 
 /**
  * null.java
@@ -18,6 +20,9 @@ public class MyApp extends Application {
     public void onCreate() {
         super.onCreate();
 
+        LogUtils.getConfig().setLogSwitch(BuildConfig.DEBUG);
         Utils.init(this);
+
+        MMKV.initialize(this);
     }
 }

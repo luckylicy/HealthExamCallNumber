@@ -3,6 +3,7 @@ package com.xyj.hecn.adapter;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.viewholder.BaseViewHolder;
 import com.xyj.hecn.R;
+import com.xyj.hecn.bean.MqttMessageBean;
 import com.xyj.hecn.bean.PatientBean;
 
 import org.jetbrains.annotations.NotNull;
@@ -18,16 +19,16 @@ import java.util.List;
  * @date : 2021/4/25
  * email ：licy3051@qq.com
  */
-public class LinePersonRvAdapter extends BaseQuickAdapter<PatientBean, BaseViewHolder> {
+public class LinePersonRvAdapter extends BaseQuickAdapter<MqttMessageBean.DataBean, BaseViewHolder> {
 
-    public LinePersonRvAdapter(@Nullable List<PatientBean> data) {
+    public LinePersonRvAdapter(@Nullable List<MqttMessageBean.DataBean> data) {
         super(R.layout.adapter_rv_line_person, data);
     }
 
 
     @Override
-    protected void convert(@NotNull BaseViewHolder baseViewHolder, PatientBean patientBean) {
+    protected void convert(@NotNull BaseViewHolder baseViewHolder, MqttMessageBean.DataBean patientBean) {
         baseViewHolder.setText(R.id.tv_name, patientBean.getName())
-                .setText(R.id.tv_number, patientBean.getNumber());
+                .setText(R.id.tv_number, patientBean.getRecordId());
     }
 }

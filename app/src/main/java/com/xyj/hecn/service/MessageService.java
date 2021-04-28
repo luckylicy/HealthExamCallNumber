@@ -5,9 +5,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.Binder;
 import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
+import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -49,19 +51,20 @@ public class MessageService extends Service {
     /**
      * 服务器地址（协议+地址+端口号）
      */
-    public String HOST = "tcp://172.16.15.89:1883";
+//    public String HOST = "tcp://114.115.167.235:1883";
+    public String HOST = "tcp://172.16.11.15:1883";
     /**
      * 用户名
      */
-    public String USERNAME = "admin";
+    public String USERNAME = "mqttSender";
     /**
      * 密码
      */
-    public String PASSWORD = "admin";
+    public String PASSWORD = "ce5b9b29d610a7bc330f3a299f43747a";
     /**
      * 发布主题
      */
-    public static String PUBLISH_TOPIC = "tourist_enter";
+    public static String PUBLISH_TOPIC = "exam_all_topic";
     /**
      * 响应主题
      */
@@ -73,7 +76,7 @@ public class MessageService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        init();
+        init(HOST);
         return super.onStartCommand(intent, flags, startId);
     }
 
@@ -126,9 +129,11 @@ public class MessageService extends Service {
 
     /**
      * 初始化
+     *
+     * @param url
      */
-    private void init() {
-        String serverURI = HOST; //服务器地址（协议+地址+端口号）
+    public void init(String url) {
+        String serverURI = url; //服务器地址（协议+地址+端口号）
         mqttAndroidClient = new MqttAndroidClient(this, serverURI, CLIENTID);
         mqttAndroidClient.setCallback(mqttCallback); //设置监听订阅消息的回调
         mMqttConnectOptions = new MqttConnectOptions();

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".ui.SettingActivity">
+
+        <com.hjq.bar.TitleBar
+            android:id="@+id/title_bar"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            app:rightColor="@color/color_222222"
+            app:rightTitle="保存"
+            app:title="应用设置"
+            app:titleColor="@color/color_black" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="@color/color_white"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical|end"
+                android:text="MQTT地址："
+                android:textColor="@color/color_222222"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/et_mqtt_address"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="3dp"
+                android:background="@drawable/shape_edit_text_bg"
+                android:cursorVisible="true"
+                android:gravity="center_vertical"
+                android:hint="请输入mqtt地址"
+                android:paddingStart="12dp"
+                android:textColor="@color/color_222222"
+                android:textColorHint="@color/color_444444"
+                android:textSize="13sp" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/color_E5E5E5" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="@color/color_white"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical|end"
+                android:paddingStart="12dp"
+                android:text="科室编码："
+                android:textColor="@color/color_222222"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/et_depart_code"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="3dp"
+                android:background="@drawable/shape_edit_text_bg"
+                android:cursorVisible="true"
+                android:gravity="center_vertical"
+                android:hint="请输入科室编码"
+                android:paddingStart="12dp"
+                android:textColor="@color/color_222222"
+                android:textColorHint="@color/color_444444"
+                android:textSize="13sp" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/color_E5E5E5" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="@color/color_white"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical|end"
+                android:paddingStart="12dp"
+                android:text="诊室编码："
+                android:textColor="@color/color_222222"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/et_room_code"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="3dp"
+                android:background="@drawable/shape_edit_text_bg"
+                android:cursorVisible="true"
+                android:gravity="center_vertical"
+                android:hint="请输入诊室编码"
+                android:paddingStart="12dp"
+                android:textColor="@color/color_222222"
+                android:textColorHint="@color/color_444444"
+                android:textSize="13sp" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/color_E5E5E5" />
+
+    </LinearLayout>
+</layout>

@@ -23,6 +23,9 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+        debug {
+            applicationIdSuffix '.debug'
+        }
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -65,4 +68,12 @@ dependencies {
     implementation 'org.eclipse.paho:org.eclipse.paho.android.service:1.1.1'
 
     implementation 'org.greenrobot:eventbus:3.2.0'
+
+    // MMKV 腾讯开源shared preference替代库
+    // https://github.com/tencent/mmkv
+    implementation 'com.tencent:mmkv-static:1.2.2'
+
+    implementation 'com.hjq:titlebar:8.5'
+
+    implementation 'me.jessyan:autosize:1.2.1'
 }
